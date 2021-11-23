@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Truth or Drink</string>
+    <string name="draw_pile">Draw Pile</string>
+    <string name="change_player_one_score">Drinks: $playerOneScore</string>
+    <string name="change_player_two_score">Drinks: $playerTwoScore</string>
+    <string name="deck_description">One of Many Decks</string>
+    <string name="first_player_turn_marker">FIRST PLAYER\'S TURN</string>
+    <string name="second_player_turn_marker">SECOND PLAYER\'S TURN</string>
+    <string name="end_game_button_text">End Game</string>
+    <string name="drink_count">Drink: 0</string>
+    <string name="active_card_desc">Active Card</string>
+    <string name="drink_button_text">Drink</string>
+    <string name="truth_button_text">Truth</string>
+
+    <!--to toggle the open close button
+        of the navigation drawer-->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+</resources>

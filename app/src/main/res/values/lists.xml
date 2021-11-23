@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="random_imgs">
+        <item>@drawable/on_the_rocks_3</item>
+        <item>@drawable/on_the_rocks_2</item>
+        <item>@drawable/on_the_rocks_1</item>
+    </array>
+<array name="cards">
+    R.drawable.on_the_rocks_1,
+    R.drawable.on_the_rocks_2,
+    R.drawable.on_the_rocks_3,
+    R.drawable.on_the_rocks_4,
+    R.drawable.on_the_rocks_5,
+    R.drawable.on_the_rocks_6,
+    R.drawable.on_the_rocks_7,
+    R.drawable.on_the_rocks_8,
+    R.drawable.on_the_rocks_9,
+    R.drawable.on_the_rocks_10,
+    R.drawable.on_the_rocks_11,
+    R.drawable.on_the_rocks_12,
+    R.drawable.on_the_rocks_13,
+    R.drawable.on_the_rocks_14,
+    R.drawable.on_the_rocks_15,
+    R.drawable.on_the_rocks_16,
+    R.drawable.on_the_rocks_17,
+    R.drawable.on_the_rocks_18,
+    R.drawable.on_the_rocks_19,
+    R.drawable.on_the_rocks_20,
+    R.drawable.on_the_rocks_21,
+    R.drawable.on_the_rocks_22,
+    R.drawable.on_the_rocks_23,
+    R.drawable.on_the_rocks_24,
+    R.drawable.on_the_rocks_25,
+    R.drawable.on_the_rocks_26,
+    R.drawable.on_the_rocks_27,
+    R.drawable.on_the_rocks_28,
+    R.drawable.on_the_rocks_29,
+    R.drawable.on_the_rocks_30,
+    R.drawable.on_the_rocks_31,
+    R.drawable.on_the_rocks_32,
+    R.drawable.on_the_rocks_33,
+    R.drawable.on_the_rocks_34,
+    R.drawable.on_the_rocks_35,
+    R.drawable.on_the_rocks_36,
+    R.drawable.on_the_rocks_37,
+    R.drawable.on_the_rocks_38,
+    R.drawable.on_the_rocks_39,
+    R.drawable.on_the_rocks_40,
+    R.drawable.on_the_rocks_41,
+    R.drawable.on_the_rocks_42,
+    R.drawable.on_the_rocks_43,
+    R.drawable.on_the_rocks_44,
+    R.drawable.on_the_rocks_45,
+    R.drawable.on_the_rocks_46,
+    R.drawable.on_the_rocks_47,
+    R.drawable.on_the_rocks_48,
+    R.drawable.on_the_rocks_49,
+    R.drawable.on_the_rocks_50,
+    R.drawable.on_the_rocks_51,
+    R.drawable.on_the_rocks_52,
+    R.drawable.on_the_rocks_53,
+    R.drawable.on_the_rocks_54,
+    R.drawable.on_the_rocks_55
+
+</array>
+</resources>
