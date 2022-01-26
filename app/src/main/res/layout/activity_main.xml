@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Play"
+        android:text="@string/play_name"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/decks_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         style="@style/ButtonTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rules"
+        android:text="@string/rules_name"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/draw_button"
         app:layout_constraintEnd_toEndOf="@+id/draw_button"
@@ -69,7 +69,8 @@
             <CheckBox
                 android:id="@+id/blackCheckBox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -83,12 +84,14 @@
                 android:layout_width="75dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
+                android:contentDescription="@string/blue_deck_description"
                 app:srcCompat="@drawable/tod_deck_blue" />
 
             <CheckBox
                 android:id="@+id/blueCheckBox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -101,12 +104,14 @@
                 android:id="@+id/redDeck"
                 android:layout_width="75dp"
                 android:layout_height="100dp"
+                android:contentDescription="@string/red_deck_description"
                 app:srcCompat="@drawable/tod_deck_red" />
 
             <CheckBox
                 android:id="@+id/redCheckBox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -119,12 +124,14 @@
                 android:id="@+id/yellowDeck"
                 android:layout_width="75dp"
                 android:layout_height="100dp"
+                android:contentDescription="@string/yellow_deck_description"
                 app:srcCompat="@drawable/tod_deck_yellow" />
 
             <CheckBox
                 android:id="@+id/yellowCheckBox"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
     </LinearLayout>
 
@@ -231,7 +238,6 @@
                 android:id="@+id/active_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:contentDescription="@string/active_card_desc"
@@ -240,8 +246,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/active_card"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
