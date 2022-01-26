@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/liquor_on_table_small"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/draw_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#00FFFFFF"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/blackDeck"
+        app:layout_constraintEnd_toEndOf="@+id/blackDeck"
+        app:layout_constraintStart_toStartOf="@+id/blackDeck"
+        app:layout_constraintTop_toTopOf="@+id/blackDeck"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+    <ImageView
+        android:id="@+id/greenDeck"
+        android:layout_width="60sp"
+        android:layout_height="80sp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/blueDeck"
+        app:srcCompat="@drawable/tod_deck_green"
+        android:contentDescription="@string/deck_description" />
+
+    <CheckBox
+        android:id="@+id/greenCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/greenDeck"
+        app:layout_constraintStart_toStartOf="@+id/greenDeck"
+        app:layout_constraintTop_toBottomOf="@+id/greenDeck" />
+
+    <ImageView
+        android:id="@+id/blueDeck"
+        android:layout_width="60sp"
+        android:layout_height="80sp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/blackDeck"
+        android:contentDescription="@string/deck_description"
+        app:srcCompat="@drawable/tod_deck_blue" />
+
+    <CheckBox
+        android:id="@+id/blueCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/blueDeck"
+        app:layout_constraintStart_toStartOf="@+id/blueDeck"
+        app:layout_constraintTop_toBottomOf="@+id/blueDeck" />
+
+    <ImageView
+        android:id="@+id/blackDeck"
+        android:layout_width="60sp"
+        android:layout_height="80sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/draw_pile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/tod_back_deck" />
+
+    <CheckBox
+        android:id="@+id/blackCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/blackDeck"
+        app:layout_constraintStart_toStartOf="@+id/blackDeck"
+        app:layout_constraintTop_toBottomOf="@+id/blackDeck" />
+
+    <ImageView
+        android:id="@+id/redDeck"
+        android:layout_width="60sp"
+        android:layout_height="80sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/deck_description"
+        app:layout_constraintStart_toEndOf="@+id/blackDeck"
+        app:srcCompat="@drawable/tod_deck_red" />
+
+    <CheckBox
+        android:id="@+id/redCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/redDeck"
+        app:layout_constraintStart_toStartOf="@+id/redDeck"
+        app:layout_constraintTop_toBottomOf="@+id/redDeck" />
+
+    <ImageView
+        android:id="@+id/yellowDeck"
+        android:layout_width="60sp"
+        android:layout_height="80sp"
+        android:layout_marginStart="32dp"
+        android:contentDescription="@string/deck_description"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/redDeck"
+        app:srcCompat="@drawable/tod_deck_yellow" />
+
+    <CheckBox
+        android:id="@+id/yellowCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/yellowDeck"
+        app:layout_constraintStart_toStartOf="@+id/yellowDeck"
+        app:layout_constraintTop_toBottomOf="@+id/yellowDeck" />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical"
+        app:cardBackgroundColor="#BF646464"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/player_one_turn_marker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="16dp"
+                android:background="#FFFFFFFF"
+                android:textSize="12sp"
+                android:text="@string/first_player_turn_marker"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/end_game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginHorizontal="200dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_toStartOf="@+id/player_two_turn_marker"
+                android:layout_toEndOf="@+id/player_one_turn_marker"
+                android:gravity="center_horizontal"
+                android:textSize="12sp"
+                android:text="@string/end_game_button_text"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/player_two_turn_marker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                android:textSize="12sp"
+                android:layout_gravity="end"
+                android:background="#FFFFFFFF"
+                android:text="@string/second_player_turn_marker"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/card_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="#00FFFFFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/player_one_score"
+                style="@style/ScoreTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:rotation="90"
+                android:text="@string/drink_count"
+                android:textColor="#F3F3F3"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/drink_button"
+                style="@style/ButtonTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tod_back_invert"
+                android:text="@string/drink_button_text" />
+
+            <ImageView
+                android:id="@+id/active_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0"
+                android:contentDescription="@string/active_card_desc"
+                android:src="@drawable/on_the_rocks_1" />
+
+            <Button
+                android:id="@+id/truth_button"
+                style="@style/ButtonTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tod_back_invert"
+                android:text="@string/truth_button_text" />
+
+            <TextView
+                android:id="@+id/player_two_score"
+                style="@style/ScoreTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:rotation="270"
+                android:text="@string/drink_count"
+                android:textColor="#F3F3F3"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
