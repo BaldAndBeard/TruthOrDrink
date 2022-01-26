@@ -7,50 +7,133 @@
     android:background="@drawable/liquor_on_table_small"
     tools:context=".MainActivity">
 
-    <!--the root view must be the DrawerLayout-->
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/my_drawer_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/ButtonTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_horizontal"
+        android:text="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".MainActivity"
-        tools:ignore="HardcodedText">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <!--this the navigation view which draws
-            and shows the navigation drawer-->
-        <!--include the menu created in the menu folder-->
-        <com.google.android.material.navigation.NavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:menu="@menu/navigation_menu" />
-
-    </androidx.drawerlayout.widget.DrawerLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/draw_button"
+        style="@style/ButtonTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:background="#00FFFFFF"
-        android:text="@string/draw_pile"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:text="Play"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/decks_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <Button
+        android:id="@+id/rules_Button"
+        style="@style/ButtonTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rules"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/draw_button"
+        app:layout_constraintEnd_toEndOf="@+id/draw_button"
+        app:layout_constraintStart_toStartOf="@+id/draw_button" />
+
+    <LinearLayout
+        android:id="@+id/decks_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/blackDeck"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/draw_pile"
+                app:srcCompat="@drawable/tod_back_deck" />
+
+            <CheckBox
+                android:id="@+id/blackCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/blueDeck"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/tod_deck_blue" />
+
+            <CheckBox
+                android:id="@+id/blueCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/redDeck"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/tod_deck_red" />
+
+            <CheckBox
+                android:id="@+id/redCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/yellowDeck"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/tod_deck_yellow" />
+
+            <CheckBox
+                android:id="@+id/yellowCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         app:cardBackgroundColor="#BF646464"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,10 +153,24 @@
                 android:layout_alignParentStart="true"
                 android:layout_gravity="start"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
                 android:background="#FFFFFFFF"
                 android:text="@string/first_player_turn_marker"
                 android:textSize="12sp"
                 android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/player_one_score"
+                style="@style/ScoreTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/player_one_turn_marker"
+                android:layout_alignStart="@+id/player_one_turn_marker"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/drink_count"
+                android:textColor="#F3F3F3"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/end_game"
@@ -81,8 +178,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|top"
                 android:layout_marginHorizontal="200dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
                 android:layout_toStartOf="@+id/player_two_turn_marker"
                 android:layout_toEndOf="@+id/player_one_turn_marker"
                 android:gravity="center_horizontal"
@@ -99,79 +196,109 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:background="#FFFFFFFF"
                 android:text="@string/second_player_turn_marker"
                 android:textSize="12sp"
                 android:visibility="invisible" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/card_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="#00FFFFFF"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/player_one_score"
-                style="@style/ScoreTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal|center_vertical"
-                android:rotation="90"
-                android:text="@string/drink_count"
-                android:textColor="#F3F3F3"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/drink_button"
-                style="@style/ButtonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/tod_back_invert"
-                android:text="@string/drink_button_text" />
-
-            <ImageView
-                android:id="@+id/active_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="0"
-                android:contentDescription="@string/active_card_desc"
-                android:src="@drawable/on_the_rocks_1" />
-
-            <Button
-                android:id="@+id/truth_button"
-                style="@style/ButtonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/tod_back_invert"
-                android:text="@string/truth_button_text" />
 
             <TextView
                 android:id="@+id/player_two_score"
                 style="@style/ScoreTextStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/player_two_turn_marker"
+                android:layout_alignEnd="@+id/player_two_turn_marker"
                 android:gravity="center_horizontal|center_vertical"
-                android:rotation="270"
                 android:text="@string/drink_count"
                 android:textColor="#F3F3F3"
                 android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/card_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#00FFFFFF"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/active_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/active_card_desc"
+                android:src="@drawable/on_the_rocks_1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/active_card"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/truth_button"
+                    style="@style/ButtonTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/tod_back_invert"
+                    android:text="@string/truth_button_text" />
+
+                <Button
+                    android:id="@+id/drink_button"
+                    style="@style/ButtonTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/tod_back_invert"
+                    android:text="@string/drink_button_text" />
+            </LinearLayout>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rules_view"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/RulesText"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/close_rules_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_close" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

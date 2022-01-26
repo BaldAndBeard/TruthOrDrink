@@ -9,17 +9,9 @@ import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.core.view.isVisible
 import kotlin.random.Random
-import androidx.appcompat.app.ActionBarDrawerToggle
-
-import androidx.drawerlayout.widget.DrawerLayout
-
-
 
 
 class MainActivity : AppCompatActivity() {
-
-    var drawerLayout: DrawerLayout? = null
-    var actionBarDrawerToggle: ActionBarDrawerToggle? = null
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,19 +19,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        //Drawer Layout icon to open and close
-        val drawerLayout: DrawerLayout? = findViewById(R.id.my_drawer_layout)
-        val actionBarDrawerToggle: ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close)
-
-        //Toggle drawer button
-        drawerLayout?.addDrawerListener(actionBarDrawerToggle)
-        actionBarDrawerToggle.syncState()
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         //Draw Function
         val drawButton: Button = findViewById(R.id.draw_button)
+        val rulesButton: Button = findViewById(R.id.rules_Button)
         val endGame: Button = findViewById(R.id.end_game)
         val cardDisplay: CardView = findViewById(R.id.card_view)
+        val closeRulesButton: Button = findViewById(R.id.close_rules_button)
+        val rulesView: CardView = findViewById(R.id.rules_view)
+        val decksLayout: LinearLayout = findViewById(R.id.decks_layout)
+        rulesButton.setOnClickListener{
+            rulesView.visibility = View.VISIBLE
+            drawButton.visibility = View.GONE
+            rulesButton.visibility = View.GONE
+            decksLayout.visibility = View.GONE
+
+        }
+        closeRulesButton.setOnClickListener{
+            rulesView.visibility = View.GONE
+            drawButton.visibility = View.VISIBLE
+            rulesButton.visibility = View.VISIBLE
+            decksLayout.visibility = View.VISIBLE
+        }
         drawButton.setOnClickListener {
             val image: ImageView = findViewById(R.id.active_card)
 
@@ -331,7 +331,6 @@ class MainActivity : AppCompatActivity() {
             val redCheckBox: CheckBox = findViewById(R.id.redCheckBox)
             val blackCheckBox: CheckBox = findViewById(R.id.blackCheckBox)
             val yellowCheckBox: CheckBox = findViewById(R.id.yellowCheckBox)
-            val greenCheckBox: CheckBox = findViewById(R.id.greenCheckBox)
             val blueCheckBox: CheckBox = findViewById(R.id.blueCheckBox)
 
             if (redCheckBox.isChecked) {
@@ -346,12 +345,9 @@ class MainActivity : AppCompatActivity() {
             if (blackCheckBox.isChecked) {
                 activeDeck += lastCallDeck
             }
-            if (greenCheckBox.isChecked) {
-                activeDeck += withATwistDeck
-            }
 
 
-            //Random Image Function
+            //Start Game Function
             if (activeDeck.isNotEmpty()) {
                 val n = Random.nextInt(activeDeck.size)
                 image.setImageResource(activeDeck[n])
@@ -359,6 +355,10 @@ class MainActivity : AppCompatActivity() {
                 //Make CardView Visible
                 if (cardDisplay.visibility == View.GONE) {
                     cardDisplay.visibility = View.VISIBLE
+                    drawButton.visibility = View.GONE
+                    rulesButton.visibility = View.GONE
+                    decksLayout.visibility = View.GONE
+
                 }
             } else {
                 Toast.makeText(this, "Add a Deck Dumbass", Toast.LENGTH_SHORT).show()
@@ -422,7 +422,9 @@ class MainActivity : AppCompatActivity() {
             playerOneScoreDisplay.setText("Drinks: $playerOneScore")
             playerTwoScoreDisplay.setText("Drinks: $playerTwoScore")
             cardDisplay.visibility = View.GONE
-            endGame.visibility = View.GONE
+            drawButton.visibility = View.VISIBLE
+            rulesButton.visibility = View.VISIBLE
+            decksLayout.visibility = View.VISIBLE
 
         }
 
